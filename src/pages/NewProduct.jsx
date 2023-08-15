@@ -6,6 +6,8 @@ import { addNewProduct } from "../api/firebase";
 export default function NewProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+  const [success, setSuccess] = useState();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -19,10 +21,17 @@ export default function NewProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsUploading(true);
     uploadImage(file).then((url) => {
       console.log(url);
-      addNewProduct(product, url);
+      addNewProduct(product, url)
+        .then(() => {
+          setSuccess("추가 잘됬음요");
+          setTimeout(() => {
+            setSuccess(null);
+          }, 4000);
+        })
+        .finally(() => setIsUploading(false));
     });
 
     // 제품의 사진을 cloudinary에 업로드하고 URL 을 획득
@@ -32,7 +41,7 @@ export default function NewProduct() {
   return (
     <section className="w-full text-center">
       <h2 className="text-2xl font-bold my-4">새로운 제품 등록</h2>
-
+      {success && <p className="my-2">✅ {success}</p>}
       {file && (
         <img
           className="w-96 mx-auto mb-2"
@@ -88,7 +97,10 @@ export default function NewProduct() {
           required
           onChange={handleChange}
         />
-        <Button text={"제품 등록하기"} />
+        <Button
+          text={isUploading ? "업로드중..." : "제품 등록하기"}
+          disabled={isUploading}
+        />
       </form>
     </section>
   );
