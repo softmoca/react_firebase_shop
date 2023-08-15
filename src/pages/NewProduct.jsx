@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import { uploadImage } from "../api/uploader";
-import { addNewProduct } from "../api/firebase";
+import useProducts from "../hooks/useProducts";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
   const [isUploading, setIsUploading] = useState(false);
   const [success, setSuccess] = useState();
+
+  const { addProduct } = useProducts();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -22,21 +24,25 @@ export default function NewProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsUploading(true);
-    uploadImage(file).then((url) => {
-      console.log(url);
-      addNewProduct(product, url)
-        .then(() => {
-          setSuccess("추가 잘됬음요");
-          setTimeout(() => {
-            setSuccess(null);
-          }, 4000);
-        })
-        .finally(() => setIsUploading(false));
-    });
-
-    // 제품의 사진을 cloudinary에 업로드하고 URL 을 획득
-    // Firebase에 새로운 제품을 추가
+    uploadImage(file) //
+      .then((url) => {
+        addProduct.mutate(
+          { product, url },
+          {
+            onSuccess: () => {
+              setSuccess("성공적으로 제품이 추가되었습니다.");
+              setTimeout(() => {
+                setSuccess(null);
+              }, 4000);
+            },
+          }
+        );
+      })
+      .finally(() => setIsUploading(false));
   };
+
+  // 제품의 사진을 cloudinary에 업로드하고 URL 을 획득
+  // Firebase에 새로운 제품을 추가
 
   return (
     <section className="w-full text-center">
