@@ -33,7 +33,6 @@ export function logout() {
 //firebase auth의 state가 변하면 콜백 실행
 export function onUserStateChange(callback) {
   //1. 사용자가 있는 경우(로그인한 경우)
-
   onAuthStateChanged(auth, async (user) => {
     const updatedUser = user ? await adminUser(user) : null;
     callback(updatedUser);
