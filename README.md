@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# [ NODE_REACT_SHOP ]  쇼핑몰 애플리케이션 with firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+firebase 와 contextAPI 및 reactQuery의 전반적인 흐름을 경험하기 위한 개인 클론 코딩프로젝트.
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### [리액트 개념정리 -클론코딩](https://academy.dream-coding.com/courses/player/react/lessons/1564)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 🔨 Tech Skills
 
-### `yarn build`
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💻 프론트엔드
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 언어 / 라이브러리
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Javascript
+- React
+- yarn
 
-### `yarn eject`
+### 로그인
+-firebase goolge login
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 상태관리
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- contextAPI
+- redux-persist
+- reactQuery
+  
+### 비동기 데이터 처리
+- reactQuery
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 데이터베이스
 
-## Learn More
+- firebase realtime database
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 이미지 업로드
+- Cloudinary
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 디자인
 
-### Code Splitting
+- Tailwind CSS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ 
+<br/>
+<br/>
 
-### Making a Progressive Web App
+![googlelogin](https://github.com/softmoca/node_react_fullstack_shop_app/assets/105472863/3b2be95e-0f7e-4bdb-8c58-9b2ab6b98460)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![detailpage](https://github.com/softmoca/node_react_fullstack_shop_app/assets/105472863/26e22689-00c0-44dd-8727-c89c00f420d8)
 
-### Advanced Configuration
+![mycart](https://github.com/softmoca/node_react_fullstack_shop_app/assets/105472863/f8fc6d8b-957d-4c90-b95c-df5c178e4bc8)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![upload](https://github.com/softmoca/node_react_fullstack_shop_app/assets/105472863/060dede1-d3ee-481e-8b22-69a47d5fa59a)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
