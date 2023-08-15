@@ -10,7 +10,7 @@ export function AuthContextProvider({ children }) {
   //그 정보로 로그인을하고 logout이면 null
   useEffect(() => {
     onUserStateChange((user) => {
-      console.log(user);
+      //console.log(user);
       setUser(user);
     });
   }, []);
