@@ -6,8 +6,8 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-
-import { getDatabase, ref, set, get, remove } from "firebase/database";
+import { v4 as uuid } from "uuid";
+import { getDatabase, ref, set, get } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -53,5 +53,16 @@ async function adminUser(user) {
       return { ...user, isAdmin }; //사용자의 정보와 idAdmin의 정보 추가
     }
     return user; //admin이 아닌경우
+  });
+}
+
+export async function addNewProduct(product, image) {
+  const id = uuid(); // 고유한 제품 id
+  return set(ref(database, `products/${id}`), {
+    ...product, // 기존의 상품ㅇ르 가져와서 아래와 같이 변경
+    id: id,
+    price: parseInt(product.price),
+    image: image,
+    options: product.options.split(","), // 배열로 저장하기 위해서
   });
 }

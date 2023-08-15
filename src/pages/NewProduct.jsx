@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import { uploadImage } from "../api/uploader";
+import { addNewProduct } from "../api/firebase";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -21,6 +22,7 @@ export default function NewProduct() {
 
     uploadImage(file).then((url) => {
       console.log(url);
+      addNewProduct(product, url);
     });
 
     // 제품의 사진을 cloudinary에 업로드하고 URL 을 획득
